@@ -489,9 +489,9 @@
     },
     {
       "name": "uuid",
-      "rootUri": "file:///C:/Users/acer/AppData/Local/Pub/Cache/hosted/pub.dev/uuid-4.2.1",
+      "rootUri": "file:///C:/Users/acer/AppData/Local/Pub/Cache/hosted/pub.dev/uuid-4.3.3",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "3.0"
     },
     {
       "name": "vector_math",
@@ -548,7 +548,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2024-01-18T15:34:51.571850Z",
+  "generated": "2024-01-19T00:38:52.847941Z",
   "generator": "pub",
   "generatorVersion": "3.2.3"
 }

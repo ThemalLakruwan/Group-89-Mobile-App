@@ -14,15 +14,15 @@ class Database {
       ExpenceModel(
           id: const Uuid().v4(),
           title: "Pepper",
-          decsription: "this is a test description",
+          amount: 10,
           date: DateTime.now(),
-          category: Category.low),
+          category: Category.leisure),
       ExpenceModel(
           id: const Uuid().v4(),
           title: "Tomato",
-          decsription: "this is a test description",
+          amount: 15,
           date: DateTime.now(),
-          category: Category.lowest)
+          category: Category.work)
     ];
   }
 
