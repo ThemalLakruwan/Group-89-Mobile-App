@@ -14,10 +14,10 @@ class AddNewExpencce extends StatefulWidget {
 
 class _AddNewExpencceState extends State<AddNewExpencce> {
   final _titleController = TextEditingController();
-  final _descController = TextEditingController();
+  late final _amountController = TextEditingController();
 
   DateTime _selectedDate = DateTime.now();
-  Category _selectedCategory = Category.lowest;
+  Category _selectedCategory = Category.food;
 
   final DateTime initialDate = DateTime.now();
   final DateTime firstDate = DateTime(
@@ -43,9 +43,10 @@ class _AddNewExpencceState extends State<AddNewExpencce> {
 
   void _handleSaveExpences() {
     // Form validation
-    // final _enteredAmount = double.tryParse(_amountController.text.trim());
+    final _enteredAmount = double.tryParse(_amountController.text.trim());
 
-    if (_titleController.text.trim().isEmpty || _descController.text.isEmpty) {
+    var userAmount;
+    if (_titleController.text.trim().isEmpty || userAmount <= 0) {
       // Show an error message
       showDialog(
         useSafeArea: true,
@@ -84,7 +85,7 @@ class _AddNewExpencceState extends State<AddNewExpencce> {
         updatedExpence = ExpenceModel(
           id: widget.expence.id,
           title: _titleController.text,
-          decsription: _descController.text,
+          amount: userAmount,
           date: _selectedDate,
           category: _selectedCategory,
         );
@@ -93,7 +94,7 @@ class _AddNewExpencceState extends State<AddNewExpencce> {
         updatedExpence = ExpenceModel(
           id: const Uuid().v4(),
           title: _titleController.text,
-          decsription: _descController.text,
+          amount: userAmount,
           date: _selectedDate,
           category: _selectedCategory,
         );
@@ -111,7 +112,7 @@ class _AddNewExpencceState extends State<AddNewExpencce> {
   @override
   void dispose() {
     _titleController.dispose();
-    _descController.dispose();
+    _amountController.dispose();
     super.dispose();
   }
 
@@ -122,7 +123,7 @@ class _AddNewExpencceState extends State<AddNewExpencce> {
     //set the initial values for the form
     if (widget.expence.title.isNotEmpty) {
       _titleController.text = widget.expence.title;
-      _descController.text = widget.expence.decsription;
+       _amountController.text = widget.expence.amount.toString();
       _selectedDate = widget.expence.date;
       _selectedCategory = widget.expence.category;
     }
@@ -148,10 +149,10 @@ class _AddNewExpencceState extends State<AddNewExpencce> {
               //amount
               Expanded(
                 child: TextField(
-                  controller: _descController,
+                  controller:_amountController,
                   decoration: const InputDecoration(
-                    hintText: "Enter the task description",
-                    label: Text("Description"),
+                    hintText: "Enter the amount",
+                    label: Text("Amount"),
                     // prefixText: "\$ ",
                   ),
                 ),

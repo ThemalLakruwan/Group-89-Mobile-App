@@ -43,9 +43,9 @@ class _ExpencesState extends State<Expences> {
           expence: ExpenceModel(
             id: uuid,
             title: "",
-            decsription: "",
+            amount: 10,
             date: DateTime.now(),
-            category: Category.lowest,
+            category: Category.food,
           ),
         );
       },
@@ -156,20 +156,20 @@ class _ExpencesState extends State<Expences> {
 
       // Update the dataMap with the calculated values
       dataMap = {
-        "Lowest": foodVal,
-        "Low": travelVal,
-        "High": leasureVal,
-        "Highest": workVal,
+        "Food": foodVal,
+        "Travel": travelVal,
+        "Leisure": leasureVal,
+        "Work": workVal,
       };
     });
   }
 
 // Initialize dataMap with the initial values
   Map<String, double> dataMap = {
-    "Lowest": 0,
-    "Low": 0,
-    "High": 0,
-    "Highest": 0,
+    "Food": 0,
+    "Travel": 0,
+    "Leisure": 0,
+    "Work": 0,
   };
 
   @override

@@ -26,7 +26,7 @@ class ExpenceItem extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  '\$${expence.decsription}',
+                  '\$${expence.amount}',
                 ),
                 const Spacer(),
                 Row(
